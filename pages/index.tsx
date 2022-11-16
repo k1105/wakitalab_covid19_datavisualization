@@ -8,11 +8,15 @@ extend({ OrbitControls });
 
 export default function Home() {
   const [date, setDate] = useState<string>("");
+  const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
   return (
     <div id="root">
+      <button onClick={() => setFocusedPrefId((focusedPrefId + 1) % 47)}>
+        Next
+      </button>
       <div style={{ position: "absolute", fontSize: "2rem" }}>{date}</div>
       <Canvas>
-        <MeshGroup date={date} setDate={setDate} />
+        <MeshGroup focusedPrefId={focusedPrefId} setDate={setDate} />
       </Canvas>
     </div>
   );

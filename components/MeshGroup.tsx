@@ -25,30 +25,35 @@ declare global {
 
 type Case = { case: number[]; all: number; date: string };
 type PrefLatLon = { pref_name: string; lat: string; lon: string };
+type PrefPopulation = { population: number[] };
 type Props = {
-  date: string;
+  focusedPrefId: number;
   setDate: Dispatch<SetStateAction<string>>;
 };
 
 extend({ OrbitControls });
 
-export default function MeshGroup({ date, setDate }: Props) {
+export default function MeshGroup({ focusedPrefId, setDate }: Props) {
   const covidCases = useRef<Case[]>();
   const prefLatLon = useRef<PrefLatLon[]>();
-  const elapsedTime = useRef<number>(0);
+  const prefPopulation = useRef<PrefPopulation>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const elapsedTime = useRef<number>(0);
   const groupRef = useRef<Group>(null);
 
   useMemo(() => {
-    const data = async () => {
+    const getJson = async () => {
       prefLatLon.current = await fetch("/data/pref_lat_lon.json").then((data) =>
         data.json()
       );
       covidCases.current = await fetch("/data/casesMin.json").then((data) =>
         data.json()
       );
+      prefPopulation.current = await fetch("/data/pref_population.json").then(
+        (data) => data.json()
+      );
     };
-    data().then(() => {
+    getJson().then(() => {
       setIsLoading(false);
     });
   }, []);
@@ -62,12 +67,16 @@ export default function MeshGroup({ date, setDate }: Props) {
     const t = elapsedTime.current - current;
     elapsedTime.current = elapsedTime.current + delta;
     controls.current?.update();
-    if (covidCases.current) {
+    if (covidCases.current && prefPopulation.current) {
       for (let i = 0; i < 47; i++) {
         const currentSize: number =
-          (covidCases.current as Case[])[current + offset].case[i] / 100;
+          ((covidCases.current as Case[])[current + offset].case[i] /
+            prefPopulation.current.population[i]) *
+          1000;
         const nextSize: number =
-          (covidCases.current as Case[])[next + offset].case[i] / 100;
+          ((covidCases.current as Case[])[next + offset].case[i] /
+            prefPopulation.current.population[i]) *
+          1000;
         const size = t * nextSize + (1 - t) * currentSize;
         groupRef.current?.children[i].children[1].scale.set(size, size, size);
         groupRef.current?.children[i].children[0].scale.set(1, 1, 1);
@@ -95,31 +104,61 @@ export default function MeshGroup({ date, setDate }: Props) {
               const size = 10;
               const pref_name = (prefLatLon.current as PrefLatLon[])[i]
                 .pref_name;
-              console.log(pref_name);
               const pref_lon = Number(
                 (prefLatLon.current as PrefLatLon[])[i].lon
               );
               const pref_lat = Number(
                 (prefLatLon.current as PrefLatLon[])[i].lat
               );
-              meshes.push(
-                <group>
-                  <Text
-                    color={0x000000}
-                    position={[pref_lon - 135, 0, pref_lat - 35]}
-                  >
-                    {pref_name}
-                  </Text>
-                  <mesh
-                    key={i}
-                    position={[pref_lon - 135, 0, pref_lat - 35]}
-                    scale={[size, size, size]}
-                  >
-                    <sphereGeometry />
-                    <meshBasicMaterial color="#ffffff" wireframe={true} />
-                  </mesh>
-                </group>
-              );
+              if (i == focusedPrefId) {
+                meshes.push(
+                  <group>
+                    <Text
+                      color={0x000000}
+                      position={[pref_lon - 135, 0, 35 - pref_lat]}
+                    >
+                      {pref_name}
+                    </Text>
+                    <mesh
+                      key={i}
+                      position={[pref_lon - 135, 0, 35 - pref_lat]}
+                      scale={[size, size, size]}
+                    >
+                      <sphereGeometry />
+                      <meshBasicMaterial
+                        color="#00ffff"
+                        wireframe={true}
+                        transparent={true}
+                        opacity={0.5}
+                      />
+                    </mesh>
+                  </group>
+                );
+              } else {
+                meshes.push(
+                  <group>
+                    <Text
+                      color={0x000000}
+                      position={[pref_lon - 135, 0, 35 - pref_lat]}
+                    >
+                      {pref_name}
+                    </Text>
+                    <mesh
+                      key={i}
+                      position={[pref_lon - 135, 0, 35 - pref_lat]}
+                      scale={[size, size, size]}
+                    >
+                      <sphereGeometry />
+                      <meshBasicMaterial
+                        color="#cccccc"
+                        wireframe={true}
+                        transparent={true}
+                        opacity={0.5}
+                      />
+                    </mesh>
+                  </group>
+                );
+              }
             }
             return meshes;
           })()}
