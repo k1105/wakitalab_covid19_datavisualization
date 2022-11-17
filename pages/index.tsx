@@ -6,14 +6,19 @@ import MeshGroup from "../components/MeshGroup";
 
 extend({ OrbitControls });
 
-type Case = { case: number[]; all: number; date: string };
+type WeeklyCase = {
+  begin_date: string;
+  end_date: string;
+  weekly_average_case: number[];
+  all: number;
+};
 type PrefLatLon = { pref_name: string; lat: string; lon: string };
 type PrefPopulation = { population: number[] };
 
 export default function Home() {
   const [date, setDate] = useState<string>("");
   const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
-  const covidCases = useRef<Case[]>();
+  const weeklyCases = useRef<WeeklyCase[]>();
   const prefLatLon = useRef<PrefLatLon[]>();
   const prefPopulation = useRef<PrefPopulation>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -24,8 +29,8 @@ export default function Home() {
       prefLatLon.current = await fetch("/data/pref_lat_lon.json").then((data) =>
         data.json()
       );
-      covidCases.current = await fetch("/data/casesMin.json").then((data) =>
-        data.json()
+      weeklyCases.current = await fetch("/data/weekly_cases.json").then(
+        (data) => data.json()
       );
       prefPopulation.current = await fetch("/data/pref_population.json").then(
         (data) => data.json()
@@ -63,7 +68,7 @@ export default function Home() {
             setDate={setDate}
             prefLatLon={prefLatLon.current as PrefLatLon[]}
             prefPopulation={prefPopulation.current as PrefPopulation}
-            covidCases={covidCases.current as Case[]}
+            weeklyCases={weeklyCases.current as WeeklyCase[]}
             setCaseCount={setCaseCount}
           />
         )}

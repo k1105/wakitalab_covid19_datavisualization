@@ -6,13 +6,7 @@ import {
 } from "@react-three/fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { Text } from "@react-three/drei";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useRef } from "react";
 import { Group } from "three";
 
 declare global {
@@ -23,13 +17,18 @@ declare global {
   }
 }
 
-type Case = { case: number[]; all: number; date: string };
+type WeeklyCase = {
+  begin_date: string;
+  end_date: string;
+  weekly_average_case: number[];
+  all: number;
+};
 type PrefLatLon = { pref_name: string; lat: string; lon: string };
 type PrefPopulation = { population: number[] };
 type Props = {
   focusedPrefId: number;
   setDate: Dispatch<SetStateAction<string>>;
-  covidCases: Case[];
+  weeklyCases: WeeklyCase[];
   prefPopulation: PrefPopulation;
   prefLatLon: PrefLatLon[];
   setCaseCount: Dispatch<SetStateAction<number>>;
@@ -40,7 +39,7 @@ extend({ OrbitControls });
 export default function MeshGroup({
   focusedPrefId,
   setDate,
-  covidCases,
+  weeklyCases,
   prefPopulation,
   prefLatLon,
   setCaseCount,
@@ -50,21 +49,23 @@ export default function MeshGroup({
 
   const controls = useRef<OrbitControls>(null);
   const { camera, gl } = useThree();
-  const offset = 800;
+  const offset = 140;
   useFrame((state, delta) => {
     const current: number = Math.floor(elapsedTime.current);
     const next = current + 1;
     const t = elapsedTime.current - current;
     elapsedTime.current = elapsedTime.current + delta;
     controls.current?.update();
-    if (covidCases && prefPopulation) {
+    if (weeklyCases && prefPopulation) {
       for (let i = 0; i < 47; i++) {
         const currentSize: number =
-          ((covidCases as Case[])[current + offset].case[i] /
+          ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
+            .weekly_average_case[i] /
             prefPopulation.population[i]) *
           1000;
         const nextSize: number =
-          ((covidCases as Case[])[next + offset].case[i] /
+          ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
+            .weekly_average_case[i] /
             prefPopulation.population[i]) *
           1000;
         const size = t * nextSize + (1 - t) * currentSize;
@@ -75,9 +76,12 @@ export default function MeshGroup({
   });
 
   setInterval(() => {
-    setDate(covidCases[Math.floor(elapsedTime.current) + offset].date);
+    setDate(
+      weeklyCases[(Math.floor(elapsedTime.current) + offset) % 147].begin_date
+    );
     setCaseCount(
-      covidCases[Math.floor(elapsedTime.current) + offset].case[focusedPrefId]
+      weeklyCases[(Math.floor(elapsedTime.current) + offset) % 147]
+        .weekly_average_case[focusedPrefId]
     );
   }, 1000);
 
