@@ -14,15 +14,25 @@ type WeeklyCase = {
 };
 type PrefLatLon = { pref_name: string; lat: string; lon: string };
 type PrefPopulation = { population: number[] };
+type GovMeasure = {
+  status: "kinkyu" | "manbou";
+  begin_at: string;
+  end_at: string;
+  pref_id: number;
+};
 
 export default function Home() {
-  const [date, setDate] = useState<string>("");
   const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
   const weeklyCases = useRef<WeeklyCase[]>();
   const prefLatLon = useRef<PrefLatLon[]>();
   const prefPopulation = useRef<PrefPopulation>();
+  const govMeasures = useRef<GovMeasure[]>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [caseCount, setCaseCount] = useState<number>(0);
+  const beginAtRef = useRef<HTMLParagraphElement>(null);
+  const endAtRef = useRef<HTMLParagraphElement>(null);
+  const caseCountRef = useRef<HTMLParagraphElement>(null);
+  const sliderRef = useRef<HTMLInputElement>(null);
+  const [pause, setPause] = useState<boolean>(false);
 
   useMemo(() => {
     const getJson = async () => {
@@ -34,6 +44,9 @@ export default function Home() {
       );
       prefPopulation.current = await fetch("/data/pref_population.json").then(
         (data) => data.json()
+      );
+      govMeasures.current = await fetch("/data/gov_measure.json").then((data) =>
+        data.json()
       );
     };
     getJson().then(() => {
@@ -48,6 +61,12 @@ export default function Home() {
       <button onClick={() => setFocusedPrefId((focusedPrefId - 1 + 47) % 47)}>
         Prev
       </button>
+      <div>
+        <button onClick={() => setPause(!pause)}>
+          {pause ? "Play" : "Pause"}
+        </button>
+      </div>
+
       <div style={{ position: "absolute", fontSize: "1.5rem" }}>
         <p>
           <strong>
@@ -56,8 +75,14 @@ export default function Home() {
               : prefLatLon.current[focusedPrefId].pref_name}
           </strong>
         </p>
-        <p>{date}</p>
-        <p>{caseCount}</p>
+        <small>From:</small>
+        <p ref={beginAtRef}></p>
+        <small>To:</small>
+        <p ref={endAtRef}></p>
+        <small>Average (week):</small>
+        <p ref={caseCountRef}></p>
+
+        <input type="range" name="" ref={sliderRef} min="0" max="146" />
       </div>
       <Canvas>
         {isLoading ? (
@@ -65,11 +90,15 @@ export default function Home() {
         ) : (
           <MeshGroup
             focusedPrefId={focusedPrefId}
-            setDate={setDate}
+            beginAtRef={beginAtRef.current}
+            endAtRef={endAtRef.current}
             prefLatLon={prefLatLon.current as PrefLatLon[]}
             prefPopulation={prefPopulation.current as PrefPopulation}
             weeklyCases={weeklyCases.current as WeeklyCase[]}
-            setCaseCount={setCaseCount}
+            govMeasures={govMeasures.current as GovMeasure[]}
+            caseCountRef={caseCountRef.current}
+            sliderRef={sliderRef.current}
+            pause={pause}
           />
         )}
       </Canvas>

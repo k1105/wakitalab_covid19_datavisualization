@@ -1,0 +1,980 @@
+[
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/14",
+    "pref_id": 39
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/21",
+    "pref_id": 26
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/21",
+    "pref_id": 27
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/25",
+    "pref_id": 12
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/25",
+    "pref_id": 13
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/25",
+    "pref_id": 10
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/7",
+    "end_at": "2020/5/25",
+    "pref_id": 11
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 3
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 6
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 9
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 7
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 8
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 21
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 22
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 23
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 20
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 24
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 16
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 15
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 18
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 37
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 33
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 32
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 42
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 44
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 45
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 36
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 38
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 40
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 41
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/14",
+    "pref_id": 46
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/21",
+    "pref_id": 25
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2020/4/16",
+    "end_at": "2020/5/25",
+    "pref_id": 0
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/8",
+    "end_at": "2021/3/21",
+    "pref_id": 12
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/8",
+    "end_at": "2021/3/21",
+    "pref_id": 13
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/8",
+    "end_at": "2021/3/21",
+    "pref_id": 10
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/8",
+    "end_at": "2021/3/21",
+    "pref_id": 11
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/7",
+    "pref_id": 8
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 22
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 26
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 27
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 25
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 20
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/1/14",
+    "end_at": "2021/2/28",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/5",
+    "end_at": "2021/4/24",
+    "pref_id": 26
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/5",
+    "end_at": "2021/4/24",
+    "pref_id": 27
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/5",
+    "end_at": "2021/5/11",
+    "pref_id": 3
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/12",
+    "end_at": "2021/4/24",
+    "pref_id": 12
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/12",
+    "end_at": "2021/4/24",
+    "pref_id": 25
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/12",
+    "end_at": "2021/5/22",
+    "pref_id": 46
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/20",
+    "end_at": "2021/5/11",
+    "pref_id": 22
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/20",
+    "end_at": "2021/8/1",
+    "pref_id": 13
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/20",
+    "end_at": "2021/8/1",
+    "pref_id": 10
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/20",
+    "end_at": "2021/8/1",
+    "pref_id": 11
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/4/25",
+    "end_at": "2021/5/22",
+    "pref_id": 37
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/4/25",
+    "end_at": "2021/6/20",
+    "pref_id": 12
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/4/25",
+    "end_at": "2021/6/20",
+    "pref_id": 26
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/4/25",
+    "end_at": "2021/6/20",
+    "pref_id": 27
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/4/25",
+    "end_at": "2021/6/20",
+    "pref_id": 25
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/9",
+    "end_at": "2021/5/15",
+    "pref_id": 0
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/9",
+    "end_at": "2021/6/20",
+    "pref_id": 23
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/9",
+    "end_at": "2021/6/20",
+    "pref_id": 20
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/12",
+    "end_at": "2021/6/20",
+    "pref_id": 22
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/12",
+    "end_at": "2021/6/20",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/13",
+    "pref_id": 9
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/13",
+    "pref_id": 16
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/13",
+    "pref_id": 42
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/20",
+    "pref_id": 0
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/20",
+    "pref_id": 33
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/16",
+    "end_at": "2021/6/20",
+    "pref_id": 32
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/5/23",
+    "end_at": "2021/9/30",
+    "pref_id": 46
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 0
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 12
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 22
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 27
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 25
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/7/11",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/6/21",
+    "end_at": "2021/8/1",
+    "pref_id": 26
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/7/12",
+    "end_at": "2021/9/30",
+    "pref_id": 12
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/8/19",
+    "pref_id": 27
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/8/19",
+    "pref_id": 25
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/8/19",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/8/26",
+    "pref_id": 0
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/9/30",
+    "pref_id": 13
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/9/30",
+    "pref_id": 10
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/9/30",
+    "pref_id": 11
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/9/30",
+    "pref_id": 26
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/2",
+    "end_at": "2021/9/30",
+    "pref_id": 16
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/19",
+    "pref_id": 9
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/19",
+    "pref_id": 7
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/19",
+    "pref_id": 8
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/19",
+    "pref_id": 21
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/26",
+    "pref_id": 22
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/8/26",
+    "pref_id": 24
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/9/30",
+    "pref_id": 6
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/8",
+    "end_at": "2021/9/30",
+    "pref_id": 42
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/8/26",
+    "pref_id": 3
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/8/26",
+    "pref_id": 23
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/8/26",
+    "pref_id": 20
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/8/26",
+    "pref_id": 33
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/8/26",
+    "pref_id": 32
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/12",
+    "pref_id": 15
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/12",
+    "pref_id": 18
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/12",
+    "pref_id": 37
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 9
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 7
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 8
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 21
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 27
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 25
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 45
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/20",
+    "end_at": "2021/9/30",
+    "pref_id": 36
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/12",
+    "pref_id": 3
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/12",
+    "pref_id": 32
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/12",
+    "pref_id": 38
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/12",
+    "pref_id": 40
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/12",
+    "pref_id": 41
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 0
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 22
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 23
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 20
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 24
+  },
+  {
+    "status": "kinkyu",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 33
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/8/27",
+    "end_at": "2021/9/30",
+    "pref_id": 44
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/9/13",
+    "end_at": "2021/9/30",
+    "pref_id": 3
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2021/9/13",
+    "end_at": "2021/9/30",
+    "pref_id": 32
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/9",
+    "end_at": "2022/2/20",
+    "pref_id": 34
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/9",
+    "end_at": "2022/2/20",
+    "pref_id": 46
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/9",
+    "end_at": "2022/3/6",
+    "pref_id": 33
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/6",
+    "pref_id": 14
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/6",
+    "pref_id": 23
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/6",
+    "pref_id": 44
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/6",
+    "pref_id": 41
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 12
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 13
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 10
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 11
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 9
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 22
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 20
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 42
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/21",
+    "end_at": "2022/3/21",
+    "pref_id": 36
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/2/20",
+    "pref_id": 5
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/2/20",
+    "pref_id": 7
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/2/20",
+    "pref_id": 31
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/2/20",
+    "pref_id": 43
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 6
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 19
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 32
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 39
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 45
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/6",
+    "pref_id": 40
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 0
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 1
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 8
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 21
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 26
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 27
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 25
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/1/27",
+    "end_at": "2022/3/21",
+    "pref_id": 16
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/2/5",
+    "end_at": "2022/3/6",
+    "pref_id": 29
+  },
+  {
+    "status": "manbou",
+    "begin_at": "2022/2/12",
+    "end_at": "2022/3/6",
+    "pref_id": 38
+  }
+]

@@ -1,0 +1,247 @@
+{
+  "北海道": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/25" },
+    { "status": "manbou", "begin_at": "2021/5/9", "end_at": "2021/5/15" },
+    { "status": "kinkyu", "begin_at": "2021/5/16", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "manbou", "begin_at": "2021/8/2", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "青森": [
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "山形": [
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/2/20" }
+  ],
+  "宮城": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/4/5", "end_at": "2021/5/11" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/12" },
+    { "status": "manbou", "begin_at": "2021/9/13", "end_at": "2021/9/30" }
+  ],
+  "福島": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "東京": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/25" },
+    { "status": "kinkyu", "begin_at": "2021/1/8", "end_at": "2021/3/21" },
+    { "status": "manbou", "begin_at": "2021/4/12", "end_at": "2021/4/24" },
+    { "status": "kinkyu", "begin_at": "2021/4/25", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "kinkyu", "begin_at": "2021/7/12", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "神奈川": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/25" },
+    { "status": "kinkyu", "begin_at": "2021/1/8", "end_at": "2021/3/21" },
+    { "status": "manbou", "begin_at": "2021/4/20", "end_at": "2021/8/1" },
+    { "status": "kinkyu", "begin_at": "2021/8/2", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "埼玉": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/25" },
+    { "status": "kinkyu", "begin_at": "2021/1/8", "end_at": "2021/3/21" },
+    { "status": "manbou", "begin_at": "2021/4/20", "end_at": "2021/8/1" },
+    { "status": "kinkyu", "begin_at": "2021/8/2", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "千葉": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/25" },
+    { "status": "kinkyu", "begin_at": "2021/1/8", "end_at": "2021/3/21" },
+    { "status": "manbou", "begin_at": "2021/4/20", "end_at": "2021/8/1" },
+    { "status": "kinkyu", "begin_at": "2021/8/2", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "群馬": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/5/16", "end_at": "2021/6/13" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "茨城": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/2/20" }
+  ],
+  "栃木": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/7" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "新潟": [
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/6" }
+  ],
+  "静岡": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "長野": [
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "愛知": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "manbou", "begin_at": "2021/4/20", "end_at": "2021/5/11" },
+    { "status": "kinkyu", "begin_at": "2021/5/12", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "大阪": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/21" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "manbou", "begin_at": "2021/4/5", "end_at": "2021/4/24" },
+    { "status": "kinkyu", "begin_at": "2021/4/25", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/8/1" },
+    { "status": "kinkyu", "begin_at": "2021/8/2", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "兵庫": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/21" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "manbou", "begin_at": "2021/4/5", "end_at": "2021/4/24" },
+    { "status": "kinkyu", "begin_at": "2021/4/25", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "manbou", "begin_at": "2021/8/2", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "京都": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/21" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "manbou", "begin_at": "2021/4/12", "end_at": "2021/4/24" },
+    { "status": "kinkyu", "begin_at": "2021/4/25", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "manbou", "begin_at": "2021/8/2", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "三重": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/5/9", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/6" }
+  ],
+  "岐阜": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "manbou", "begin_at": "2021/5/9", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "滋賀": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" }
+  ],
+  "和歌山": [
+    { "status": "manbou", "begin_at": "2022/2/5", "end_at": "2022/3/6" }
+  ],
+  "石川": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/5/16", "end_at": "2021/6/13" },
+    { "status": "manbou", "begin_at": "2021/8/2", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/21" }
+  ],
+  "富山": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/9/12" }
+  ],
+  "山梨": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/9/12" }
+  ],
+  "愛媛": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/4/25", "end_at": "2021/5/22" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/9/12" }
+  ],
+  "広島": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/5/16", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/9", "end_at": "2022/3/6" }
+  ],
+  "岡山": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/5/16", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/8/26" },
+    { "status": "kinkyu", "begin_at": "2021/8/27", "end_at": "2021/9/12" },
+    { "status": "manbou", "begin_at": "2021/9/13", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "島根": [
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/2/20" }
+  ],
+  "山口": [
+    { "status": "manbou", "begin_at": "2022/1/9", "end_at": "2022/2/20" }
+  ],
+  "福岡": [
+    { "status": "kinkyu", "begin_at": "2020/4/7", "end_at": "2020/5/14" },
+    { "status": "kinkyu", "begin_at": "2021/1/14", "end_at": "2021/2/28" },
+    { "status": "kinkyu", "begin_at": "2021/5/12", "end_at": "2021/6/20" },
+    { "status": "manbou", "begin_at": "2021/6/21", "end_at": "2021/7/11" },
+    { "status": "manbou", "begin_at": "2021/8/2", "end_at": "2021/8/19" },
+    { "status": "kinkyu", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "熊本": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/5/16", "end_at": "2021/6/13" },
+    { "status": "manbou", "begin_at": "2021/8/8", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "宮崎": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/27", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/6" }
+  ],
+  "鹿児島": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "香川": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/20", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/21" }
+  ],
+  "高知": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/27", "end_at": "2021/9/12" },
+    { "status": "manbou", "begin_at": "2022/2/12", "end_at": "2022/3/6" }
+  ],
+  "佐賀": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/27", "end_at": "2021/9/12" },
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/3/6" }
+  ],
+  "長崎": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/8/27", "end_at": "2021/9/12" },
+    { "status": "manbou", "begin_at": "2022/1/21", "end_at": "2022/3/6" }
+  ],
+  "大分": [
+    { "status": "manbou", "begin_at": "2022/1/27", "end_at": "2022/2/20" }
+  ],
+  "沖縄": [
+    { "status": "kinkyu", "begin_at": "2020/4/16", "end_at": "2020/5/14" },
+    { "status": "manbou", "begin_at": "2021/4/12", "end_at": "2021/5/22" },
+    { "status": "kinkyu", "begin_at": "2021/5/23", "end_at": "2021/9/30" },
+    { "status": "manbou", "begin_at": "2022/1/9", "end_at": "2022/2/20" }
+  ]
+}
