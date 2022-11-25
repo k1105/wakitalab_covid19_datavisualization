@@ -84,11 +84,12 @@ export default function Home() {
         squareRef={squareRef}
         prefIndexRef={prefIndexRef}
       />
-
-      <Canvas>
-        {isLoading ? (
-          <></>
-        ) : (
+      {isLoading ? (
+        <>
+          <p style={{ color: "white" }}>Loading...</p>
+        </>
+      ) : (
+        <Canvas>
           <MeshGroup
             focusedPrefId={focusedPrefId}
             beginAtRef={beginAtRef.current}
@@ -104,8 +105,8 @@ export default function Home() {
             squareRef={squareRef.current}
             prefIndexRef={prefIndexRef.current}
           />
-        )}
-      </Canvas>
+        </Canvas>
+      )}
     </div>
   );
 }
