@@ -1,37 +1,9 @@
-import {
-  ReactThreeFiber,
-  useFrame,
-  extend,
-  useThree,
-} from "@react-three/fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { Text } from "@react-three/drei";
-import React, { useRef } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { Text, OrbitControls } from "@react-three/drei";
+import React, { LegacyRef, useRef } from "react";
 import { Group } from "three";
 import * as THREE from "three";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      orbitControls: ReactThreeFiber.Node<OrbitControls, typeof OrbitControls>;
-    }
-  }
-}
-
-type WeeklyCase = {
-  begin_date: string;
-  end_date: string;
-  weekly_average_case: number[];
-  all: number;
-};
-type PrefLatLon = { pref_name: string; lat: string; lon: string };
-type PrefPopulation = { population: number[] };
-type GovMeasure = {
-  status: "kinkyu" | "manbou";
-  begin_at: string;
-  end_at: string;
-  pref_id: number;
-};
 type Props = {
   focusedPrefId: number;
   beginAtRef: HTMLParagraphElement | null;
@@ -43,9 +15,10 @@ type Props = {
   prefLatLon: PrefLatLon[];
   pause: boolean;
   govMeasures: GovMeasure[];
+  filteredList: GovMeasure[];
+  squareRef: HTMLDivElement | null;
+  prefIndexRef: HTMLDivElement | null;
 };
-
-extend({ OrbitControls });
 
 export default function MeshGroup({
   focusedPrefId,
@@ -58,20 +31,111 @@ export default function MeshGroup({
   caseCountRef,
   sliderRef,
   pause,
+  filteredList,
+  squareRef,
+  prefIndexRef,
 }: Props) {
   const elapsedTime = useRef<number>(0);
   const groupRef = useRef<Group>(null);
-  const filteredList = useRef<GovMeasure[]>();
 
-  const controls = useRef<OrbitControls>(null);
   const { camera, gl } = useThree();
-  const offset = 100;
-  useFrame((state, delta) => {
+  const offset = 10;
+  useFrame((_, delta) => {
+    // Animation
+    const current: number = Math.floor(elapsedTime.current);
+    const next = current + 1;
+    const t = elapsedTime.current - current;
+    const focus = {
+      x: Number(prefLatLon[focusedPrefId].lon) - 135,
+      z: 35 - Number(prefLatLon[focusedPrefId].lat),
+    };
+    const radius =
+      (1 - t) *
+        ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
+          .weekly_average_case[focusedPrefId] /
+          prefPopulation.population[focusedPrefId]) *
+        1000 +
+      t *
+        ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
+          .weekly_average_case[focusedPrefId] /
+          prefPopulation.population[focusedPrefId]) *
+        1000;
+    camera.lookAt(focus.x, 0, focus.z);
+
+    for (let i = 0; i < 47; i++) {
+      (
+        ((groupRef.current as Group).children[i].children[1] as THREE.Mesh)
+          .material as THREE.MeshBasicMaterial
+      ).opacity = 0.25;
+
+      if (prefIndexRef !== null) {
+        (prefIndexRef.children[i] as HTMLParagraphElement).style.color = "#666";
+        (
+          prefIndexRef.children[i] as HTMLParagraphElement
+        ).style.textDecoration = "none";
+      }
+    }
+
+    if (prefIndexRef !== null) {
+      (
+        prefIndexRef.children[focusedPrefId] as HTMLParagraphElement
+      ).style.textDecoration = "line-through";
+    }
+
+    (
+      (
+        (groupRef.current as Group).children[focusedPrefId]
+          .children[1] as THREE.Mesh
+      ).material as THREE.MeshBasicMaterial
+    ).opacity = 1;
+
+    if (squareRef !== null) {
+      squareRef.style.background = "#cccccc";
+    }
+
+    filteredList = govMeasures.filter((item, _) => {
+      const measure_begin_at = new Date(item.begin_at.replace("/", "-"));
+      const measure_end_at = new Date(item.end_at.replace("/", "-"));
+      const week_begin_at = new Date(
+        weeklyCases[(current + offset) % 147].begin_date.replace("/", "-")
+      );
+      const week_end_at = new Date(
+        weeklyCases[(current + offset) % 147].end_date.replace("/", "-")
+      );
+
+      if (measure_end_at > week_begin_at && week_end_at > measure_begin_at)
+        return true;
+    });
+
+    for (let measure of filteredList) {
+      if (measure.pref_id == focusedPrefId && squareRef !== null) {
+        if (measure.status == "kinkyu") {
+          squareRef.style.background = "#ff5525";
+        } else {
+          squareRef.style.background = "#ffd110";
+        }
+      }
+      if (prefIndexRef !== null) {
+        if (measure.status == "kinkyu") {
+          (
+            prefIndexRef.children[measure.pref_id] as HTMLParagraphElement
+          ).style.color = "#ff5525";
+        } else {
+          (
+            prefIndexRef.children[measure.pref_id] as HTMLParagraphElement
+          ).style.color = "#ffd110";
+        }
+      }
+    }
+
     if (!pause) {
-      // Animation
-      const current: number = Math.floor(elapsedTime.current);
-      const next = current + 1;
-      const t = elapsedTime.current - current;
+      // camera.position.set(
+      //   focus.x +
+      //     (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
+      //   radius,
+      //   focus.z +
+      //     (radius + (2 + radius) * 0.5) * Math.sin(elapsedTime.current / 10)
+      // );
 
       elapsedTime.current = elapsedTime.current + delta;
 
@@ -89,7 +153,6 @@ export default function MeshGroup({
             1000;
           const size = t * nextSize + (1 - t) * currentSize;
           groupRef.current?.children[i].children[1].scale.set(size, size, size);
-          // groupRef.current?.children[i].children[0].scale.set(1, 1, 1);
           const pref_lon = Number((prefLatLon as PrefLatLon[])[i].lon);
           const pref_lat = Number((prefLatLon as PrefLatLon[])[i].lat);
           groupRef.current?.children[i].children[0].position.set(
@@ -99,60 +162,59 @@ export default function MeshGroup({
           );
         }
 
-        filteredList.current = govMeasures.filter((item, index) => {
-          const measure_begin_at = new Date(item.begin_at.replace("/", "-"));
-          const measure_end_at = new Date(item.end_at.replace("/", "-"));
-          const week_begin_at = new Date(
-            weeklyCases[(current + offset) % 147].begin_date.replace("/", "-")
-          );
-          const week_end_at = new Date(
-            weeklyCases[(current + offset) % 147].end_date.replace("/", "-")
-          );
-
-          if (measure_end_at > week_begin_at && week_end_at > measure_begin_at)
-            return true;
-        });
-
         for (let i = 0; i < 47; i++) {
+          // @ts-ignore
           (groupRef.current as Group).children[i].children[0].color =
-            new THREE.Color("white");
+            new THREE.Color(0xffffff);
           (
-            (groupRef.current as Group).children[i].children[1] as THREE.Mesh
-          ).material.color = new THREE.Color("white");
+            ((groupRef.current as Group).children[i].children[1] as THREE.Mesh)
+              .material as THREE.MeshBasicMaterial
+          ).color = new THREE.Color(0xffffff);
         }
 
-        //console.log(filteredList);
-        for (let measure of filteredList.current) {
+        if (squareRef !== null) {
+          squareRef.style.background = "#cccccc";
+        }
+
+        for (let measure of filteredList) {
+          if (measure.pref_id == focusedPrefId && squareRef !== null) {
+            if (measure.status == "kinkyu") {
+              squareRef.style.background = "#ff5525";
+            } else {
+              squareRef.style.background = "#ffd110";
+            }
+          }
           if (measure.status == "kinkyu") {
             (groupRef.current as Group).children[
               measure.pref_id
+              // @ts-ignore
             ].children[0].color = new THREE.Color(0xff5525);
-            (groupRef.current as Group).children[
-              measure.pref_id
-            ].children[1].material.color = new THREE.Color(0xff5525);
+            (
+              (
+                (groupRef.current as Group).children[measure.pref_id]
+                  .children[1] as THREE.Mesh
+              ).material as THREE.MeshBasicMaterial
+            ).color = new THREE.Color(0xff5525);
           } else {
             (groupRef.current as Group).children[
               measure.pref_id
+              // @ts-ignore
             ].children[0].color = new THREE.Color(0xffd110);
-            (groupRef.current as Group).children[
-              measure.pref_id
-            ].children[1].material.color = new THREE.Color(0xffd110);
+            (
+              (
+                (groupRef.current as Group).children[measure.pref_id]
+                  .children[1] as THREE.Mesh
+              ).material as THREE.MeshBasicMaterial
+            ).color = new THREE.Color(0xffd110);
           }
-
-          // groupRef.current?.children[
-          //   measure.pref_id
-          // ].children[0].material.color.setHex("#ff0000");
         }
-
-        (groupRef.current as Group).children[
-          focusedPrefId
-        ].children[1].material.color = new THREE.Color("aqua");
       }
 
       // Update Ref for DOM
 
       if (beginAtRef !== null) {
-        beginAtRef.innerText = weeklyCases[(current + offset) % 147].begin_date;
+        beginAtRef.innerText =
+          weeklyCases[(current + offset) % 147].begin_date + "- ";
       }
 
       if (endAtRef !== null) {
@@ -163,9 +225,6 @@ export default function MeshGroup({
         sliderRef.value = String((elapsedTime.current + offset) % 147);
       }
     }
-
-    controls.current?.update();
-
     if (caseCountRef !== null) {
       caseCountRef.innerText = String(
         Math.floor(
@@ -183,12 +242,12 @@ export default function MeshGroup({
           const meshes = [];
           for (let i = 0; i < 47; i++) {
             const size = 10;
-            const pref_name = (prefLatLon as PrefLatLon[])[i].pref_name;
-            const pref_lon = Number((prefLatLon as PrefLatLon[])[i].lon);
-            const pref_lat = Number((prefLatLon as PrefLatLon[])[i].lat);
+            const pref_name = prefLatLon[i].pref_name;
+            const pref_lon = Number(prefLatLon[i].lon);
+            const pref_lat = Number(prefLatLon[i].lat);
 
             meshes.push(
-              <group>
+              <group key={`pref${i}`}>
                 <Text
                   fontSize={0.07}
                   color={0xffffff}
@@ -206,7 +265,7 @@ export default function MeshGroup({
                     color="gray"
                     wireframe={true}
                     transparent={true}
-                    opacity={0.5}
+                    opacity={0.3}
                   />
                 </mesh>
               </group>
@@ -216,13 +275,7 @@ export default function MeshGroup({
         })()}
       </group>
 
-      <orbitControls
-        ref={controls}
-        args={[camera, gl.domElement]}
-        enableDamping
-        dampingFactor={0.1}
-        rotateSpeed={0.5}
-      />
+      <OrbitControls />
     </>
   );
 }

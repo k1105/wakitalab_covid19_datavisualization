@@ -2,37 +2,39 @@ import { Canvas } from "@react-three/fiber";
 import { extend } from "@react-three/fiber";
 import { useState, useRef, useMemo } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import Information from "../components/Information";
 import MeshGroup from "../components/MeshGroup";
 
 extend({ OrbitControls });
 
-type WeeklyCase = {
-  begin_date: string;
-  end_date: string;
-  weekly_average_case: number[];
-  all: number;
-};
-type PrefLatLon = { pref_name: string; lat: string; lon: string };
-type PrefPopulation = { population: number[] };
-type GovMeasure = {
-  status: "kinkyu" | "manbou";
-  begin_at: string;
-  end_at: string;
-  pref_id: number;
-};
-
 export default function Home() {
-  const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
+  /**
+   * json file
+   */
   const weeklyCases = useRef<WeeklyCase[]>();
   const prefLatLon = useRef<PrefLatLon[]>();
   const prefPopulation = useRef<PrefPopulation>();
   const govMeasures = useRef<GovMeasure[]>();
+  const prefName = useRef<{ names: string[] }>();
+
+  /**
+   * UI State
+   */
+  const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
+  const [pause, setPause] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  /**
+   * UI Ref
+   */
   const beginAtRef = useRef<HTMLParagraphElement>(null);
   const endAtRef = useRef<HTMLParagraphElement>(null);
   const caseCountRef = useRef<HTMLParagraphElement>(null);
   const sliderRef = useRef<HTMLInputElement>(null);
-  const [pause, setPause] = useState<boolean>(false);
+  const squareRef = useRef<HTMLDivElement>(null);
+  const prefIndexRef = useRef<HTMLDivElement>(null);
+
+  const filteredList = useRef<GovMeasure[]>([]);
 
   useMemo(() => {
     const getJson = async () => {
@@ -48,42 +50,41 @@ export default function Home() {
       govMeasures.current = await fetch("/data/gov_measure.json").then((data) =>
         data.json()
       );
+      prefName.current = await fetch("/data/pref_name.json").then((data) =>
+        data.json()
+      );
     };
+
     getJson().then(() => {
       setIsLoading(false);
     });
   }, []);
   return (
     <div id="root">
-      <button onClick={() => setFocusedPrefId((focusedPrefId + 1) % 47)}>
-        Next
-      </button>
-      <button onClick={() => setFocusedPrefId((focusedPrefId - 1 + 47) % 47)}>
-        Prev
-      </button>
-      <div>
-        <button onClick={() => setPause(!pause)}>
-          {pause ? "Play" : "Pause"}
-        </button>
-      </div>
+      <Information
+        focusedPrefName={
+          typeof prefLatLon.current == "undefined"
+            ? ""
+            : prefLatLon.current[focusedPrefId].pref_name
+        }
+        prefName={
+          typeof prefName.current == "undefined"
+            ? { names: [] }
+            : prefName.current
+        }
+        beginAtRef={beginAtRef}
+        endAtRef={endAtRef}
+        caseCountRef={caseCountRef}
+        setFocusedPrefId={setFocusedPrefId}
+        focusedPrefId={focusedPrefId}
+        setPause={setPause}
+        pause={pause}
+        sliderRef={sliderRef}
+        filteredList={filteredList.current}
+        squareRef={squareRef}
+        prefIndexRef={prefIndexRef}
+      />
 
-      <div style={{ position: "absolute", fontSize: "1.5rem" }}>
-        <p>
-          <strong>
-            {typeof prefLatLon.current == "undefined"
-              ? ""
-              : prefLatLon.current[focusedPrefId].pref_name}
-          </strong>
-        </p>
-        <small>From:</small>
-        <p ref={beginAtRef}></p>
-        <small>To:</small>
-        <p ref={endAtRef}></p>
-        <small>Average (week):</small>
-        <p ref={caseCountRef}></p>
-
-        <input type="range" name="" ref={sliderRef} min="0" max="146" />
-      </div>
       <Canvas>
         {isLoading ? (
           <></>
@@ -99,6 +100,9 @@ export default function Home() {
             caseCountRef={caseCountRef.current}
             sliderRef={sliderRef.current}
             pause={pause}
+            filteredList={filteredList.current}
+            squareRef={squareRef.current}
+            prefIndexRef={prefIndexRef.current}
           />
         )}
       </Canvas>
