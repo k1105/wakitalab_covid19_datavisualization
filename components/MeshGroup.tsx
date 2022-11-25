@@ -40,8 +40,8 @@ export default function MeshGroup({
 
   const { camera, gl } = useThree();
   const offset = 10;
+  console.log("meshgroup");
   useFrame((_, delta) => {
-    console.log("hoge");
     // Animation
     const current: number = Math.floor(elapsedTime.current);
     const next = current + 1;
