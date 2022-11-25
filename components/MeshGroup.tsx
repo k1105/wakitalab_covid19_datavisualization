@@ -1,6 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Text, OrbitControls } from "@react-three/drei";
-import React, { LegacyRef, useRef } from "react";
+import React, { useRef } from "react";
 import { Group } from "three";
 import * as THREE from "three";
 
@@ -40,7 +40,6 @@ export default function MeshGroup({
 
   const { camera, gl } = useThree();
   const offset = 10;
-  console.log("meshgroup");
   useFrame((_, delta) => {
     // Animation
     const current: number = Math.floor(elapsedTime.current);
