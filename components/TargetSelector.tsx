@@ -22,6 +22,17 @@ export default function TargetSelector({
   pause,
   sliderRef,
 }: Props) {
+  if (typeof document !== "undefined") {
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "Space") {
+        setPause(!pause);
+      } else if (event.code === "ArrowLeft") {
+        setFocusedPrefId((focusedPrefId - 1 + 47) % 47);
+      } else if (event.code === "ArrowRight") {
+        setFocusedPrefId((focusedPrefId + 1) % 47);
+      }
+    });
+  }
   return (
     <>
       <div className="ui-container">
