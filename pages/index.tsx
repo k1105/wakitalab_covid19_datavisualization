@@ -4,6 +4,7 @@ import { useState, useRef, useMemo } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import Information from "../components/Information";
 import MeshGroup from "../components/MeshGroup";
+import Usage from "../components/Usage";
 
 extend({ OrbitControls });
 
@@ -84,6 +85,7 @@ export default function Home() {
         squareRef={squareRef}
         prefIndexRef={prefIndexRef}
       />
+      <Usage />
       {isLoading ? (
         <>
           <p style={{ color: "white" }}>Loading...</p>
