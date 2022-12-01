@@ -1,8 +1,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Text, OrbitControls } from "@react-three/drei";
 import React, { useRef } from "react";
-import { Group } from "three";
-import * as THREE from "three";
+import { Color, Group, Mesh, MeshBasicMaterial } from "three";
 
 type Props = {
   focusedPrefId: number;
@@ -164,12 +163,13 @@ export default function MeshGroup({
 
         for (let i = 0; i < 47; i++) {
           // @ts-ignore
-          (groupRef.current as Group).children[i].children[0].color =
-            new THREE.Color(0xffffff);
+          (groupRef.current as Group).children[i].children[0].color = new Color(
+            0xffffff
+          );
           (
-            ((groupRef.current as Group).children[i].children[1] as THREE.Mesh)
-              .material as THREE.MeshBasicMaterial
-          ).color = new THREE.Color(0xffffff);
+            ((groupRef.current as Group).children[i].children[1] as Mesh)
+              .material as MeshBasicMaterial
+          ).color = new Color(0xffffff);
         }
 
         if (squareRef !== null) {
@@ -188,13 +188,13 @@ export default function MeshGroup({
             (groupRef.current as Group).children[
               measure.pref_id
               // @ts-ignore
-            ].children[0].color = new THREE.Color(0xff5525);
+            ].children[0].color = new Color(0xff5525);
             (
               (
                 (groupRef.current as Group).children[measure.pref_id]
-                  .children[1] as THREE.Mesh
-              ).material as THREE.MeshBasicMaterial
-            ).color = new THREE.Color(0xff5525);
+                  .children[1] as Mesh
+              ).material as MeshBasicMaterial
+            ).color = new Color(0xff5525);
           } else {
             (groupRef.current as Group).children[
               measure.pref_id
@@ -205,7 +205,7 @@ export default function MeshGroup({
                 (groupRef.current as Group).children[measure.pref_id]
                   .children[1] as THREE.Mesh
               ).material as THREE.MeshBasicMaterial
-            ).color = new THREE.Color(0xffd110);
+            ).color = new Color(0xffd110);
           }
         }
       }
