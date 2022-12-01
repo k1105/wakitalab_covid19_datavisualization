@@ -10,7 +10,7 @@ extend({ OrbitControls });
 
 export default function Home() {
   /**
-   * json file
+   * json
    */
   const weeklyCases = useRef<WeeklyCase[]>();
   const prefLatLon = useRef<PrefLatLon[]>();
@@ -21,8 +21,6 @@ export default function Home() {
   /**
    * UI State
    */
-  const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
-  const [pause, setPause] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   /**
@@ -34,6 +32,8 @@ export default function Home() {
   const sliderRef = useRef<HTMLInputElement>(null);
   const squareRef = useRef<HTMLDivElement>(null);
   const prefIndexRef = useRef<HTMLDivElement>(null);
+  const pauseRef = useRef<boolean>(false);
+  const focusedPrefRef = useRef<number>(0);
 
   const filteredList = useRef<GovMeasure[]>([]);
 
@@ -63,11 +63,6 @@ export default function Home() {
   return (
     <div id="root">
       <Information
-        focusedPrefName={
-          typeof prefLatLon.current == "undefined"
-            ? ""
-            : prefLatLon.current[focusedPrefId].pref_name
-        }
         prefName={
           typeof prefName.current == "undefined"
             ? { names: [] }
@@ -76,12 +71,9 @@ export default function Home() {
         beginAtRef={beginAtRef}
         endAtRef={endAtRef}
         caseCountRef={caseCountRef}
-        setFocusedPrefId={setFocusedPrefId}
-        focusedPrefId={focusedPrefId}
-        setPause={setPause}
-        pause={pause}
+        focusedPrefRef={focusedPrefRef}
+        pauseRef={pauseRef}
         sliderRef={sliderRef}
-        filteredList={filteredList.current}
         squareRef={squareRef}
         prefIndexRef={prefIndexRef}
       />
@@ -93,7 +85,7 @@ export default function Home() {
       ) : (
         <Canvas>
           <MeshGroup
-            focusedPrefId={focusedPrefId}
+            focusedPrefRef={focusedPrefRef}
             beginAtRef={beginAtRef.current}
             endAtRef={endAtRef.current}
             prefLatLon={prefLatLon.current as PrefLatLon[]}
@@ -102,7 +94,7 @@ export default function Home() {
             govMeasures={govMeasures.current as GovMeasure[]}
             caseCountRef={caseCountRef.current}
             sliderRef={sliderRef.current}
-            pause={pause}
+            pauseRef={pauseRef}
             filteredList={filteredList.current}
             squareRef={squareRef.current}
             prefIndexRef={prefIndexRef.current}

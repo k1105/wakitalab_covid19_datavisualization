@@ -1,4 +1,11 @@
-import { Dispatch, SetStateAction, RefObject } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  RefObject,
+  useState,
+  MutableRefObject,
+  useEffect,
+} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBackwardStep,
@@ -8,20 +15,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
-  setFocusedPrefId: Dispatch<SetStateAction<number>>;
   focusedPrefId: number;
-  setPause: Dispatch<SetStateAction<boolean>>;
-  pause: boolean;
+  setFocusedPrefId: Dispatch<SetStateAction<number>>;
   sliderRef: RefObject<HTMLInputElement>;
+  pauseRef: MutableRefObject<boolean>;
 };
 
 export default function TargetSelector({
-  setFocusedPrefId,
   focusedPrefId,
-  setPause,
-  pause,
+  setFocusedPrefId,
   sliderRef,
+  pauseRef,
 }: Props) {
+  const [pause, setPause] = useState<boolean>(false);
+
+  useEffect(() => {
+    pauseRef.current = pause;
+  }, [pauseRef, pause]);
+
   if (typeof document !== "undefined") {
     document.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
@@ -37,7 +48,11 @@ export default function TargetSelector({
     <>
       <div className="ui-container">
         <div className="ui">
-          <a onClick={() => setFocusedPrefId((focusedPrefId - 1 + 47) % 47)}>
+          <a
+            onClick={() => {
+              setFocusedPrefId((focusedPrefId - 1 + 47) % 47);
+            }}
+          >
             <FontAwesomeIcon icon={faBackwardStep} />
           </a>
           <a onClick={() => setPause(!pause)} className="icon-center">

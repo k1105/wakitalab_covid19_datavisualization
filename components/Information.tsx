@@ -1,38 +1,40 @@
-import { RefObject, SetStateAction, Dispatch, LegacyRef } from "react";
+import {
+  RefObject,
+  useState,
+  LegacyRef,
+  MutableRefObject,
+  useEffect,
+} from "react";
 import PrefectureIndex from "./prefectureIndex";
 import TargetSelector from "./TargetSelector";
 
 type Props = {
-  focusedPrefName: string;
   beginAtRef: RefObject<HTMLParagraphElement>;
   endAtRef: RefObject<HTMLParagraphElement>;
   caseCountRef: RefObject<HTMLParagraphElement>;
   prefName: { names: string[] };
-  setFocusedPrefId: Dispatch<SetStateAction<number>>;
-  focusedPrefId: number;
-  setPause: Dispatch<SetStateAction<boolean>>;
-  pause: boolean;
+  focusedPrefRef: MutableRefObject<number>;
   sliderRef: RefObject<HTMLInputElement>;
-  filteredList: GovMeasure[] | undefined;
   squareRef: LegacyRef<HTMLDivElement>;
   prefIndexRef: LegacyRef<HTMLDivElement>;
+  pauseRef: MutableRefObject<boolean>;
 };
 
 export default function Information({
-  focusedPrefName,
   prefName,
   beginAtRef,
   endAtRef,
   caseCountRef,
-  setFocusedPrefId,
-  focusedPrefId,
-  setPause,
-  pause,
+  focusedPrefRef,
   sliderRef,
-  filteredList,
+  pauseRef,
   squareRef,
   prefIndexRef,
 }: Props) {
+  const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
+  useEffect(() => {
+    focusedPrefRef.current = focusedPrefId;
+  }, [focusedPrefId, focusedPrefRef]);
   return (
     <>
       <div className="container">
@@ -47,7 +49,7 @@ export default function Information({
           }}
         ></div>
         <p className="title">
-          <strong>{focusedPrefName}</strong>
+          <strong>{prefName.names[focusedPrefId]}</strong>
         </p>
 
         <div className="case">
@@ -55,10 +57,9 @@ export default function Information({
           <small>Average number of cases</small>
         </div>
         <TargetSelector
-          setFocusedPrefId={setFocusedPrefId}
-          setPause={setPause}
-          pause={pause}
+          pauseRef={pauseRef}
           focusedPrefId={focusedPrefId}
+          setFocusedPrefId={setFocusedPrefId}
           sliderRef={sliderRef}
         />
       </div>

@@ -1,10 +1,10 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Text, OrbitControls } from "@react-three/drei";
-import React, { useRef } from "react";
+import React, { MutableRefObject, useRef } from "react";
 import { Color, Group, Mesh, MeshBasicMaterial } from "three";
 
 type Props = {
-  focusedPrefId: number;
+  focusedPrefRef: MutableRefObject<number>;
   beginAtRef: HTMLParagraphElement | null;
   endAtRef: HTMLParagraphElement | null;
   caseCountRef: HTMLParagraphElement | null;
@@ -12,7 +12,7 @@ type Props = {
   weeklyCases: WeeklyCase[];
   prefPopulation: PrefPopulation;
   prefLatLon: PrefLatLon[];
-  pause: boolean;
+  pauseRef: MutableRefObject<boolean>;
   govMeasures: GovMeasure[];
   filteredList: GovMeasure[];
   squareRef: HTMLDivElement | null;
@@ -20,7 +20,7 @@ type Props = {
 };
 
 export default function MeshGroup({
-  focusedPrefId,
+  focusedPrefRef,
   beginAtRef,
   endAtRef,
   weeklyCases,
@@ -29,7 +29,7 @@ export default function MeshGroup({
   govMeasures,
   caseCountRef,
   sliderRef,
-  pause,
+  pauseRef,
   filteredList,
   squareRef,
   prefIndexRef,
@@ -40,6 +40,7 @@ export default function MeshGroup({
   const { camera, gl } = useThree();
   const offset = 10;
   useFrame((_, delta) => {
+    const focusedPrefId = focusedPrefRef.current;
     // Animation
     const current: number = Math.floor(elapsedTime.current);
     const next = current + 1;
@@ -127,7 +128,7 @@ export default function MeshGroup({
       }
     }
 
-    if (!pause) {
+    if (!pauseRef.current) {
       // camera.position.set(
       //   focus.x +
       //     (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
