@@ -162,7 +162,7 @@ export default function Information({
           .footer {
             position: absolute;
             left: 4vw;
-            top: 30vh;
+            top: 33vh;
           }
 
           .date {
