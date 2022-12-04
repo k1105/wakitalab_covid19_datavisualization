@@ -93,6 +93,7 @@ export default function TargetSelector({
           font-size: 1.6rem;
           width: 200px;
           margin-bottom: 200px;
+          pointer-events: auto;
         }
         .ui {
           width: fit-content;
@@ -138,6 +139,15 @@ export default function TargetSelector({
             height: 20px;
             cursor: ew-resize;
             background: #fff;
+          }
+        }
+
+        @media screen and (max-width: 500px) {
+          .ui-container {
+            position: absolute;
+            bottom: 0;
+            width: calc(100% - 30px);
+            margin-bottom: 50px;
           }
         }
       `}</style>

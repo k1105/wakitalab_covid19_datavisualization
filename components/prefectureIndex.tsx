@@ -8,20 +8,7 @@ type Props = {
 export default function PrefectureIndex({ prefName, prefIndexRef }: Props) {
   return (
     <>
-      <div
-        ref={prefIndexRef}
-        style={{
-          display: "flex",
-          fontSize: "0.8rem",
-          height: "200px",
-          width: "700px",
-          marginRight: "50px",
-          flexDirection: "column",
-          flexWrap: "wrap",
-          color: "#aaa",
-          userSelect: "none",
-        }}
-      >
+      <div ref={prefIndexRef}>
         {(() => {
           const prefNames = [];
           for (const name of prefName.names) {
@@ -34,6 +21,25 @@ export default function PrefectureIndex({ prefName, prefIndexRef }: Props) {
           return prefNames;
         })()}
       </div>
+      <style jsx>{`
+        div {
+          display: flex;
+          font-size: 0.8rem;
+          height: 200px;
+          width: 700px;
+          margin-right: 50px;
+          flex-direction: column;
+          flex-wrap: wrap;
+          color: #aaa;
+          user-select: none;
+        }
+
+        @media screen and (max-width: 500px) {
+          div {
+            display: none;
+          }
+        }
+      `}</style>
     </>
   );
 }

@@ -1,16 +1,7 @@
 export default function Usage() {
   return (
     <>
-      <div
-        style={{
-          position: "absolute",
-          fontSize: "0.8rem",
-          color: "#aaa",
-          userSelect: "none",
-          bottom: "10vh",
-          right: "5vw",
-        }}
-      >
+      <div>
         <p>
           <span style={{ color: "#ff5525" }}>●</span> : 緊急事態宣言発令
         </p>
@@ -19,8 +10,24 @@ export default function Usage() {
         </p>
       </div>
       <style jsx>{`
+        div {
+          position: absolute;
+          font-size: 0.8rem;
+          color: #aaa;
+          user-select: none;
+          bottom: 10vh;
+          right: 5vw;
+        }
         p {
           margin: 0;
+        }
+
+        @media screen and (max-width: 500px) {
+          div {
+            left: 20px;
+            bottom: 25vh;
+            font-size: 0.6rem;
+          }
         }
       `}</style>
     </>

@@ -38,16 +38,7 @@ export default function Information({
   return (
     <>
       <div className="container">
-        <div
-          ref={squareRef}
-          style={{
-            width: "200px",
-            height: "200px",
-            backgroundColor: "#ccc",
-            marginBottom: "10px",
-            padding: "5px",
-          }}
-        ></div>
+        <div ref={squareRef} className="square"></div>
         <p className="title">
           <strong>{prefName.names[focusedPrefId]}</strong>
         </p>
@@ -79,8 +70,12 @@ export default function Information({
         .container {
           position: absolute;
           z-index: 10;
-          left: 4vw;
-          top: 10vh;
+          width: 100vw;
+          height: 100vh;
+          padding-left: 4vw;
+          padding-top: 10vh;
+          user-select: none;
+          pointer-events: none;
         }
 
         .footer {
@@ -89,6 +84,15 @@ export default function Information({
           left: 4vw;
           bottom: 5vh;
         }
+
+        .square {
+          width: 200px;
+          height: 200px;
+          background-color: #ccc;
+          margin-bottom: 10px;
+          padding: 5px;
+        }
+
         .title {
           font-size: 2.4rem;
           margin-top: 0;
@@ -120,6 +124,58 @@ export default function Information({
           margin-top: 1px;
           font-size: 1rem;
           color: #ccc;
+        }
+
+        @media screen and (max-width: 500px) {
+          .container {
+            padding-left: 15px;
+            padding-top: 30px;
+          }
+
+          .square {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 10px;
+            padding: 5px;
+          }
+
+          .title {
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+          }
+
+          .case {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+          }
+          .case > p {
+            margin-top: 1px;
+            margin-bottom: 0px;
+          }
+          .case > small {
+            margin-top: 0px;
+            font-size: 0.6rem;
+            color: #ccc;
+          }
+
+          .footer {
+            position: absolute;
+            left: 4vw;
+            top: 30vh;
+          }
+
+          .date {
+            display: block;
+            margin-bottom: 0px;
+          }
+          .date > p {
+            margin-top: 1px;
+            font-size: 1.2rem;
+          }
+          .date > small {
+            font-size: 0.8rem;
+          }
         }
       `}</style>
     </>
