@@ -18,6 +18,7 @@ type Props = {
   squareRef: LegacyRef<HTMLDivElement>;
   prefIndexRef: LegacyRef<HTMLDivElement>;
   pauseRef: MutableRefObject<boolean>;
+  progressBarContainerRef: RefObject<HTMLDivElement>;
 };
 
 export default function Information({
@@ -30,6 +31,7 @@ export default function Information({
   pauseRef,
   squareRef,
   prefIndexRef,
+  progressBarContainerRef,
 }: Props) {
   const [focusedPrefId, setFocusedPrefId] = useState<number>(15);
   useEffect(() => {
@@ -52,6 +54,7 @@ export default function Information({
           focusedPrefId={focusedPrefId}
           setFocusedPrefId={setFocusedPrefId}
           sliderRef={sliderRef}
+          progressBarContainerRef={progressBarContainerRef}
         />
       </div>
       <div className="footer">

@@ -18,6 +18,7 @@ type Props = {
   squareRef: HTMLDivElement | null;
   prefIndexRef: HTMLDivElement | null;
   distance: Distance[];
+  progressBarContainerRef: HTMLDivElement | null;
 };
 
 export default function MeshGroup({
@@ -35,6 +36,7 @@ export default function MeshGroup({
   filteredList,
   squareRef,
   prefIndexRef,
+  progressBarContainerRef,
 }: Props) {
   const elapsedTime = useRef<number>(0);
   const groupRef = useRef<Group>(null);
@@ -57,17 +59,17 @@ export default function MeshGroup({
       z: 35 - Number(prefLatLon[focusedPrefId].lat),
     };
     // Animate Camera
-    // const radius =
-    //   (1 - t) *
-    //     ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
-    //       .weekly_average_case[focusedPrefId] /
-    //       prefPopulation.population[focusedPrefId]) *
-    //     1000 +
-    //   t *
-    //     ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
-    //       .weekly_average_case[focusedPrefId] /
-    //       prefPopulation.population[focusedPrefId]) *
-    //     1000;
+    const radius =
+      (1 - t) *
+        ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
+          .weekly_average_case[focusedPrefId] /
+          prefPopulation.population[focusedPrefId]) *
+        1000 +
+      t *
+        ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
+          .weekly_average_case[focusedPrefId] /
+          prefPopulation.population[focusedPrefId]) *
+        1000;
     camera.lookAt(focus.x, 0, focus.z);
     for (let i = 0; i < 47; i++) {
       //全てのメッシュを一度全て透明度0.25にする
@@ -142,13 +144,13 @@ export default function MeshGroup({
     }
     if (!pauseRef.current) {
       // Animate Camera
-      // camera.position.set(
-      //   focus.x +
-      //     (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
-      //   radius,
-      //   focus.z +
-      //     (radius + (2 + radius) * 0.5) * Math.sin(elapsedTime.current / 10)
-      // );
+      camera.position.set(
+        focus.x +
+          (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
+        radius,
+        focus.z +
+          (radius + (2 + radius) * 0.5) * Math.sin(elapsedTime.current / 10)
+      );
       elapsedTime.current = elapsedTime.current + delta;
       if (weeklyCases && prefPopulation && govMeasures) {
         for (let i = 0; i < 47; i++) {
@@ -220,6 +222,10 @@ export default function MeshGroup({
       }
       if (sliderRef !== null) {
         sliderRef.value = String((elapsedTime.current + offset) % 147);
+      }
+      if (progressBarContainerRef !== null) {
+        progressBarContainerRef.style.width =
+          String((((elapsedTime.current + offset) % 147) * 200) / 147) + "px";
       }
     }
   });

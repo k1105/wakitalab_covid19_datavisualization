@@ -13,12 +13,14 @@ import {
   faPlay,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
+import { ProgressBar } from "./ProgressBar";
 
 type Props = {
   focusedPrefId: number;
   setFocusedPrefId: Dispatch<SetStateAction<number>>;
   sliderRef: RefObject<HTMLInputElement>;
   pauseRef: MutableRefObject<boolean>;
+  progressBarContainerRef: RefObject<HTMLDivElement>;
 };
 
 export default function TargetSelector({
@@ -26,6 +28,7 @@ export default function TargetSelector({
   setFocusedPrefId,
   sliderRef,
   pauseRef,
+  progressBarContainerRef,
 }: Props) {
   const [pause, setPause] = useState<boolean>(false);
 
@@ -66,26 +69,11 @@ export default function TargetSelector({
             <FontAwesomeIcon icon={faForwardStep} />
           </a>
         </div>
-        <div className="slider">
-          <input
-            type="range"
-            name=""
-            ref={sliderRef}
-            min="0"
-            max="146"
-            step="0.01"
-            list="tickmarks"
-          />
-          <datalist id="tickmarks">
-            <option value="0" label="2020 / 01"></option>
-            <option value="17" label="2020 / 07"></option>
-            <option value="33" label="2020 / 12"></option>
-            <option value="50" label="2021 / 06"></option>
-            <option value="66" label="2021 / 11"></option>
-            <option value="83" label="2022 / 05"></option>
-            <option value="100" label="2022 / 11"></option>
-          </datalist>
-        </div>
+        <ProgressBar
+          sliderRef={sliderRef}
+          focusedPrefId={focusedPrefId}
+          progressBarContainerRef={progressBarContainerRef}
+        />
       </div>
 
       <style jsx>{`
@@ -101,45 +89,6 @@ export default function TargetSelector({
         }
         .icon-center {
           padding: 0 2rem;
-        }
-        .slider {
-          width: 200px;
-          margin: 0 auto;
-          margin-top: 20px;
-        }
-
-        input {
-          display: block;
-          width: 100%;
-        }
-
-        datalist {
-          display: flex;
-          flex-direction: column;
-          writing-mode: vertical-lr;
-          font-size: 0.5rem;
-          width: 100%;
-          justify-content: space-between;
-          color: #aaa;
-          margin-top: 20px;
-          user-select: none;
-        }
-
-        @media screen and (-webkit-min-device-pixel-ratio: 0) {
-          input[type="range"] {
-            -webkit-appearance: none;
-            background-color: #333;
-            overflow: hidden;
-            height: 5px;
-          }
-
-          input[type="range"]::-webkit-slider-thumb {
-            width: 10px;
-            -webkit-appearance: none;
-            height: 20px;
-            cursor: ew-resize;
-            background: #fff;
-          }
         }
 
         @media screen and (max-width: 500px) {
