@@ -30,7 +30,6 @@ export default function Home() {
   const beginAtRef = useRef<HTMLParagraphElement>(null);
   const endAtRef = useRef<HTMLParagraphElement>(null);
   const caseCountRef = useRef<HTMLParagraphElement>(null);
-  const sliderRef = useRef<HTMLInputElement>(null);
   const squareRef = useRef<HTMLDivElement>(null);
   const prefIndexRef = useRef<HTMLDivElement>(null);
   const pauseRef = useRef<boolean>(false);
@@ -42,11 +41,11 @@ export default function Home() {
 
   useMemo(() => {
     const getJson = async () => {
-      prefLatLon.current = await fetch("/data/pref_lat_lon.json").then((data) =>
-        data.json()
-      );
       weeklyCases.current = await fetch("/data/weekly_cases.json").then(
         (data) => data.json()
+      );
+      prefLatLon.current = await fetch("/data/pref_lat_lon.json").then((data) =>
+        data.json()
       );
       prefPopulation.current = await fetch("/data/pref_population.json").then(
         (data) => data.json()
@@ -90,7 +89,6 @@ export default function Home() {
         caseCountRef={caseCountRef}
         focusedPrefRef={focusedPrefRef}
         pauseRef={pauseRef}
-        sliderRef={sliderRef}
         squareRef={squareRef}
         prefIndexRef={prefIndexRef}
         progressBarContainerRef={progressBarContainerRef}
@@ -115,7 +113,6 @@ export default function Home() {
             govMeasures={govMeasures.current as GovMeasure[]}
             distance={distance.current as Distance[]}
             caseCountRef={caseCountRef.current}
-            sliderRef={sliderRef.current}
             pauseRef={pauseRef}
             filteredList={filteredList.current}
             squareRef={squareRef.current}

@@ -14,7 +14,6 @@ type Props = {
   caseCountRef: RefObject<HTMLParagraphElement>;
   prefName: { names: string[] };
   focusedPrefRef: MutableRefObject<number>;
-  sliderRef: RefObject<HTMLInputElement>;
   squareRef: LegacyRef<HTMLDivElement>;
   prefIndexRef: LegacyRef<HTMLDivElement>;
   pauseRef: MutableRefObject<boolean>;
@@ -27,7 +26,6 @@ export default function Information({
   endAtRef,
   caseCountRef,
   focusedPrefRef,
-  sliderRef,
   pauseRef,
   squareRef,
   prefIndexRef,
@@ -53,7 +51,6 @@ export default function Information({
           pauseRef={pauseRef}
           focusedPrefId={focusedPrefId}
           setFocusedPrefId={setFocusedPrefId}
-          sliderRef={sliderRef}
           progressBarContainerRef={progressBarContainerRef}
         />
       </div>

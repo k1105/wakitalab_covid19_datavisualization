@@ -18,7 +18,6 @@ import { ProgressBar } from "./ProgressBar";
 type Props = {
   focusedPrefId: number;
   setFocusedPrefId: Dispatch<SetStateAction<number>>;
-  sliderRef: RefObject<HTMLInputElement>;
   pauseRef: MutableRefObject<boolean>;
   progressBarContainerRef: RefObject<HTMLDivElement>;
 };
@@ -26,7 +25,6 @@ type Props = {
 export default function TargetSelector({
   focusedPrefId,
   setFocusedPrefId,
-  sliderRef,
   pauseRef,
   progressBarContainerRef,
 }: Props) {
@@ -70,7 +68,6 @@ export default function TargetSelector({
           </a>
         </div>
         <ProgressBar
-          sliderRef={sliderRef}
           focusedPrefId={focusedPrefId}
           progressBarContainerRef={progressBarContainerRef}
         />

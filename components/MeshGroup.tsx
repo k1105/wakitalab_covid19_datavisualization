@@ -8,7 +8,6 @@ type Props = {
   beginAtRef: HTMLParagraphElement | null;
   endAtRef: HTMLParagraphElement | null;
   caseCountRef: HTMLParagraphElement | null;
-  sliderRef: HTMLInputElement | null;
   weeklyCases: WeeklyCase[];
   prefPopulation: PrefPopulation;
   prefLatLon: PrefLatLon[];
@@ -31,7 +30,6 @@ export default function MeshGroup({
   govMeasures,
   distance,
   caseCountRef,
-  sliderRef,
   pauseRef,
   filteredList,
   squareRef,
@@ -219,9 +217,6 @@ export default function MeshGroup({
       }
       if (endAtRef !== null) {
         endAtRef.innerText = weeklyCases[(current + offset) % 147].end_date;
-      }
-      if (sliderRef !== null) {
-        sliderRef.value = String((elapsedTime.current + offset) % 147);
       }
       if (progressBarContainerRef !== null) {
         progressBarContainerRef.style.width =

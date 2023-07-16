@@ -2,19 +2,17 @@ import { RefObject } from "react";
 import Image from "next/image";
 
 type Props = {
-  sliderRef: RefObject<HTMLInputElement>;
   progressBarContainerRef: RefObject<HTMLDivElement>;
   focusedPrefId: Number;
 };
 
 export const ProgressBar = ({
-  sliderRef,
   progressBarContainerRef,
   focusedPrefId,
 }: Props) => {
   return (
     <>
-      <div className="slider">
+      <div className="progress-bar">
         <div ref={progressBarContainerRef} className="bar-container">
           <Image
             alt="name"
@@ -46,7 +44,7 @@ export const ProgressBar = ({
           margin-top: -30px;
           mix-blend-mode: difference;
         }
-        .slider {
+        .progress-bar {
           width: 200px;
           margin: 0 auto;
           margin-top: 20px;
