@@ -1,6 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Text, OrbitControls } from "@react-three/drei";
-import React, { MutableRefObject, useMemo, useRef, useState } from "react";
+import React, { MutableRefObject, useRef } from "react";
 import { Color, Group, Mesh, MeshBasicMaterial } from "three";
 
 type Props = {
@@ -17,6 +17,7 @@ type Props = {
   filteredList: GovMeasure[];
   squareRef: HTMLDivElement | null;
   prefIndexRef: HTMLDivElement | null;
+  distance: Distance[];
 };
 
 export default function MeshGroup({
@@ -27,6 +28,7 @@ export default function MeshGroup({
   prefPopulation,
   prefLatLon,
   govMeasures,
+  distance,
   caseCountRef,
   sliderRef,
   pauseRef,
@@ -72,7 +74,7 @@ export default function MeshGroup({
       (
         ((groupRef.current as Group).children[i].children[1] as Mesh)
           .material as MeshBasicMaterial
-      ).opacity = 0.25;
+      ).opacity = 0.5 / (distance[focusedPrefId].distance[i] / 100000) ** 2;
       //画面左下の都道府県名の色を一度全てグレーにセットする
       if (prefIndexRef !== null) {
         (prefIndexRef.children[i] as HTMLParagraphElement).style.color = "#666";
@@ -252,7 +254,7 @@ export default function MeshGroup({
                     color="gray"
                     wireframe={true}
                     transparent={true}
-                    opacity={0.3}
+                    opacity={1}
                   />
                 </mesh>
               </group>

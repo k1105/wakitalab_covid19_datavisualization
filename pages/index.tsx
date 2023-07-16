@@ -17,6 +17,7 @@ export default function Home() {
   const prefPopulation = useRef<PrefPopulation>();
   const govMeasures = useRef<GovMeasure[]>();
   const prefName = useRef<{ names: string[] }>();
+  const distance = useRef<Distance[]>();
 
   /**
    * UI State
@@ -52,6 +53,9 @@ export default function Home() {
         data.json()
       );
       prefName.current = await fetch("/data/pref_name.json").then((data) =>
+        data.json()
+      );
+      distance.current = await fetch("data/distance.json").then((data) =>
         data.json()
       );
     };
@@ -92,6 +96,7 @@ export default function Home() {
             prefPopulation={prefPopulation.current as PrefPopulation}
             weeklyCases={weeklyCases.current as WeeklyCase[]}
             govMeasures={govMeasures.current as GovMeasure[]}
+            distance={distance.current as Distance[]}
             caseCountRef={caseCountRef.current}
             sliderRef={sliderRef.current}
             pauseRef={pauseRef}

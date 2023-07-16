@@ -12,3 +12,7 @@ type GovMeasure = {
   end_at: string;
   pref_id: number;
 };
+type Distance = {
+  pref_name: string;
+  distance: number[];
+};
