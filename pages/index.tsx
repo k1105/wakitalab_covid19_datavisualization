@@ -35,6 +35,8 @@ export default function Home() {
   const prefIndexRef = useRef<HTMLDivElement>(null);
   const pauseRef = useRef<boolean>(false);
   const focusedPrefRef = useRef<number>(0);
+  const progressBarContainerRef = useRef<HTMLDivElement>(null);
+  // const [hide, setHide] = useState<boolean>(false);
 
   const filteredList = useRef<GovMeasure[]>([]);
 
@@ -66,6 +68,17 @@ export default function Home() {
   }, []);
   return (
     <div id="root">
+      {/* <button
+        onClick={() => {
+          setHide(!hide);
+        }}
+      >
+        hide
+      </button> */}
+      {/* {hide ? (
+        <></>
+      ) : (
+        <> */}
       <Information
         prefName={
           typeof prefName.current == "undefined"
@@ -80,8 +93,12 @@ export default function Home() {
         sliderRef={sliderRef}
         squareRef={squareRef}
         prefIndexRef={prefIndexRef}
+        progressBarContainerRef={progressBarContainerRef}
       />
       <Usage />
+      {/* </>
+      )} */}
+
       {isLoading ? (
         <>
           <p style={{ color: "white" }}>Loading...</p>
@@ -103,6 +120,7 @@ export default function Home() {
             filteredList={filteredList.current}
             squareRef={squareRef.current}
             prefIndexRef={prefIndexRef.current}
+            progressBarContainerRef={progressBarContainerRef.current}
           />
         </Canvas>
       )}
