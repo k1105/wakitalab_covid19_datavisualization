@@ -18,6 +18,7 @@ type Props = {
   prefIndexRef: HTMLDivElement | null;
   distance: Distance[];
   progressBarContainerRef: HTMLDivElement | null;
+  animate: boolean;
 };
 
 export default function MeshGroup({
@@ -35,6 +36,7 @@ export default function MeshGroup({
   squareRef,
   prefIndexRef,
   progressBarContainerRef,
+  animate,
 }: Props) {
   const elapsedTime = useRef<number>(0);
   const groupRef = useRef<Group>(null);
@@ -56,18 +58,7 @@ export default function MeshGroup({
       x: Number(prefLatLon[focusedPrefId].lon) - 135,
       z: 35 - Number(prefLatLon[focusedPrefId].lat),
     };
-    // Animate Camera
-    const radius =
-      (1 - t) *
-        ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
-          .weekly_average_case[focusedPrefId] /
-          prefPopulation.population[focusedPrefId]) *
-        1000 +
-      t *
-        ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
-          .weekly_average_case[focusedPrefId] /
-          prefPopulation.population[focusedPrefId]) *
-        1000;
+
     camera.lookAt(focus.x, 0, focus.z);
     for (let i = 0; i < 47; i++) {
       //全てのメッシュを一度全て透明度0.25にする
@@ -142,13 +133,28 @@ export default function MeshGroup({
     }
     if (!pauseRef.current) {
       // Animate Camera
-      camera.position.set(
-        focus.x +
-          (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
-        radius,
-        focus.z +
-          (radius + (2 + radius) * 0.5) * Math.sin(elapsedTime.current / 10)
-      );
+      if (animate) {
+        const radius =
+          (1 - t) *
+            ((weeklyCases as WeeklyCase[])[(current + offset) % 147]
+              .weekly_average_case[focusedPrefId] /
+              prefPopulation.population[focusedPrefId]) *
+            1000 +
+          t *
+            ((weeklyCases as WeeklyCase[])[(next + offset) % 147]
+              .weekly_average_case[focusedPrefId] /
+              prefPopulation.population[focusedPrefId]) *
+            1000;
+        camera.position.set(
+          focus.x +
+            (radius + (2 + radius) * 0.5) * Math.cos(elapsedTime.current / 10),
+          radius,
+          focus.z +
+            (radius + (2 + radius) * 0.5) * Math.sin(elapsedTime.current / 10)
+        );
+      }
+      // Animate Camera
+
       elapsedTime.current = elapsedTime.current + delta;
       if (weeklyCases && prefPopulation && govMeasures) {
         for (let i = 0; i < 47; i++) {

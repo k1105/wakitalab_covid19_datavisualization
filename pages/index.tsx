@@ -35,7 +35,8 @@ export default function Home() {
   const pauseRef = useRef<boolean>(false);
   const focusedPrefRef = useRef<number>(0);
   const progressBarContainerRef = useRef<HTMLDivElement>(null);
-  // const [hide, setHide] = useState<boolean>(false);
+  const [hide, setHide] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(true);
 
   const filteredList = useRef<GovMeasure[]>([]);
 
@@ -67,35 +68,42 @@ export default function Home() {
   }, []);
   return (
     <div id="root">
-      {/* <button
+      <button
         onClick={() => {
           setHide(!hide);
         }}
       >
-        hide
-      </button> */}
-      {/* {hide ? (
+        {hide ? "show" : "hide"}
+      </button>
+      <button
+        onClick={() => {
+          setAnimate(!animate);
+        }}
+      >
+        {animate ? "stop animation" : "animate camera"}
+      </button>
+      {hide ? (
         <></>
       ) : (
-        <> */}
-      <Information
-        prefName={
-          typeof prefName.current == "undefined"
-            ? { names: [] }
-            : prefName.current
-        }
-        beginAtRef={beginAtRef}
-        endAtRef={endAtRef}
-        caseCountRef={caseCountRef}
-        focusedPrefRef={focusedPrefRef}
-        pauseRef={pauseRef}
-        squareRef={squareRef}
-        prefIndexRef={prefIndexRef}
-        progressBarContainerRef={progressBarContainerRef}
-      />
-      <Usage />
-      {/* </>
-      )} */}
+        <>
+          <Information
+            prefName={
+              typeof prefName.current == "undefined"
+                ? { names: [] }
+                : prefName.current
+            }
+            beginAtRef={beginAtRef}
+            endAtRef={endAtRef}
+            caseCountRef={caseCountRef}
+            focusedPrefRef={focusedPrefRef}
+            pauseRef={pauseRef}
+            squareRef={squareRef}
+            prefIndexRef={prefIndexRef}
+            progressBarContainerRef={progressBarContainerRef}
+          />
+          <Usage />
+        </>
+      )}
 
       {isLoading ? (
         <>
@@ -118,6 +126,7 @@ export default function Home() {
             squareRef={squareRef.current}
             prefIndexRef={prefIndexRef.current}
             progressBarContainerRef={progressBarContainerRef.current}
+            animate={animate}
           />
         </Canvas>
       )}
