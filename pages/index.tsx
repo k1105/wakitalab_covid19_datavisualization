@@ -18,6 +18,7 @@ export default function Home() {
   const govMeasures = useRef<GovMeasure[]>();
   const prefName = useRef<{ names: string[] }>();
   const distance = useRef<Distance[]>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   /**
    * UI State
@@ -37,6 +38,8 @@ export default function Home() {
   const progressBarContainerRef = useRef<HTMLDivElement>(null);
   const [hide, setHide] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(true);
+  const debugInfoRef = useRef<HTMLParagraphElement>(null);
+  const elapsedTime = useRef<number>(0);
 
   const filteredList = useRef<GovMeasure[]>([]);
 
@@ -70,6 +73,13 @@ export default function Home() {
     <div id="root">
       <button
         onClick={() => {
+          elapsedTime.current = 0;
+        }}
+      >
+        reset
+      </button>
+      <button
+        onClick={() => {
           setHide(!hide);
         }}
       >
@@ -82,6 +92,17 @@ export default function Home() {
       >
         {animate ? "stop animation" : "animate camera"}
       </button>
+      <input
+        type="text"
+        ref={inputRef}
+        onChange={() => {
+          elapsedTime.current = Number(inputRef.current?.value);
+        }}
+      />
+      <p ref={debugInfoRef} style={{ color: "white", display: "inline" }}>
+        information here
+      </p>
+
       {hide ? (
         <></>
       ) : (
@@ -127,6 +148,8 @@ export default function Home() {
             prefIndexRef={prefIndexRef.current}
             progressBarContainerRef={progressBarContainerRef.current}
             animate={animate}
+            debugInfoRef={debugInfoRef.current}
+            elapsedTime={elapsedTime}
           />
         </Canvas>
       )}

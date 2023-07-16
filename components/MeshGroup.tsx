@@ -1,6 +1,6 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Text, OrbitControls } from "@react-three/drei";
-import React, { MutableRefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useRef } from "react";
 import { Color, Group, Mesh, MeshBasicMaterial } from "three";
 
 type Props = {
@@ -19,6 +19,8 @@ type Props = {
   distance: Distance[];
   progressBarContainerRef: HTMLDivElement | null;
   animate: boolean;
+  debugInfoRef: HTMLParagraphElement | null;
+  elapsedTime: MutableRefObject<number>;
 };
 
 export default function MeshGroup({
@@ -37,8 +39,9 @@ export default function MeshGroup({
   prefIndexRef,
   progressBarContainerRef,
   animate,
+  debugInfoRef,
+  elapsedTime,
 }: Props) {
-  const elapsedTime = useRef<number>(0);
   const groupRef = useRef<Group>(null);
 
   const { camera, gl } = useThree();
@@ -223,6 +226,10 @@ export default function MeshGroup({
       }
       if (endAtRef !== null) {
         endAtRef.innerText = weeklyCases[(current + offset) % 147].end_date;
+      }
+      if (debugInfoRef !== null) {
+        debugInfoRef.innerText =
+          beginAtRef?.innerText + " " + endAtRef?.innerText;
       }
       if (progressBarContainerRef !== null) {
         progressBarContainerRef.style.width =
